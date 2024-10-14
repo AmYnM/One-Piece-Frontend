@@ -9,7 +9,7 @@ import {
   NftRequested as NftRequestedEvent,
   OwnershipTransferRequested as OwnershipTransferRequestedEvent,
   OwnershipTransferred as OwnershipTransferredEvent,
-  Transfer as TransferEvent,
+  Transfer as TransferEvent
 } from "../generated/OnePieceMint/OnePieceMint"
 import {
   Approval,
@@ -22,12 +22,12 @@ import {
   NftRequested,
   OwnershipTransferRequested,
   OwnershipTransferred,
-  Transfer,
+  Transfer
 } from "../generated/schema"
 
 export function handleApproval(event: ApprovalEvent): void {
   let entity = new Approval(
-    event.transaction.hash.concatI32(event.logIndex.toI32()),
+    event.transaction.hash.concatI32(event.logIndex.toI32())
   )
   entity.owner = event.params.owner
   entity.approved = event.params.approved
@@ -42,7 +42,7 @@ export function handleApproval(event: ApprovalEvent): void {
 
 export function handleApprovalForAll(event: ApprovalForAllEvent): void {
   let entity = new ApprovalForAll(
-    event.transaction.hash.concatI32(event.logIndex.toI32()),
+    event.transaction.hash.concatI32(event.logIndex.toI32())
   )
   entity.owner = event.params.owner
   entity.operator = event.params.operator
@@ -56,10 +56,10 @@ export function handleApprovalForAll(event: ApprovalForAllEvent): void {
 }
 
 export function handleBatchMetadataUpdate(
-  event: BatchMetadataUpdateEvent,
+  event: BatchMetadataUpdateEvent
 ): void {
   let entity = new BatchMetadataUpdate(
-    event.transaction.hash.concatI32(event.logIndex.toI32()),
+    event.transaction.hash.concatI32(event.logIndex.toI32())
   )
   entity._fromTokenId = event.params._fromTokenId
   entity._toTokenId = event.params._toTokenId
@@ -72,10 +72,10 @@ export function handleBatchMetadataUpdate(
 }
 
 export function handleCharacterTraitDetermined(
-  event: CharacterTraitDeterminedEvent,
+  event: CharacterTraitDeterminedEvent
 ): void {
   let entity = new CharacterTraitDetermined(
-    event.transaction.hash.concatI32(event.logIndex.toI32()),
+    event.transaction.hash.concatI32(event.logIndex.toI32())
   )
   entity.characterId = event.params.characterId
 
@@ -88,7 +88,7 @@ export function handleCharacterTraitDetermined(
 
 export function handleCoordinatorSet(event: CoordinatorSetEvent): void {
   let entity = new CoordinatorSet(
-    event.transaction.hash.concatI32(event.logIndex.toI32()),
+    event.transaction.hash.concatI32(event.logIndex.toI32())
   )
   entity.vrfCoordinator = event.params.vrfCoordinator
 
@@ -101,7 +101,7 @@ export function handleCoordinatorSet(event: CoordinatorSetEvent): void {
 
 export function handleMetadataUpdate(event: MetadataUpdateEvent): void {
   let entity = new MetadataUpdate(
-    event.transaction.hash.concatI32(event.logIndex.toI32()),
+    event.transaction.hash.concatI32(event.logIndex.toI32())
   )
   entity._tokenId = event.params._tokenId
 
@@ -114,7 +114,7 @@ export function handleMetadataUpdate(event: MetadataUpdateEvent): void {
 
 export function handleNftMinted(event: NftMintedEvent): void {
   let entity = new NftMinted(
-    event.transaction.hash.concatI32(event.logIndex.toI32()),
+    event.transaction.hash.concatI32(event.logIndex.toI32())
   )
   entity.characterId = event.params.characterId
   entity.minter = event.params.minter
@@ -128,7 +128,7 @@ export function handleNftMinted(event: NftMintedEvent): void {
 
 export function handleNftRequested(event: NftRequestedEvent): void {
   let entity = new NftRequested(
-    event.transaction.hash.concatI32(event.logIndex.toI32()),
+    event.transaction.hash.concatI32(event.logIndex.toI32())
   )
   entity.requestId = event.params.requestId
   entity.requester = event.params.requester
@@ -141,10 +141,10 @@ export function handleNftRequested(event: NftRequestedEvent): void {
 }
 
 export function handleOwnershipTransferRequested(
-  event: OwnershipTransferRequestedEvent,
+  event: OwnershipTransferRequestedEvent
 ): void {
   let entity = new OwnershipTransferRequested(
-    event.transaction.hash.concatI32(event.logIndex.toI32()),
+    event.transaction.hash.concatI32(event.logIndex.toI32())
   )
   entity.from = event.params.from
   entity.to = event.params.to
@@ -157,10 +157,10 @@ export function handleOwnershipTransferRequested(
 }
 
 export function handleOwnershipTransferred(
-  event: OwnershipTransferredEvent,
+  event: OwnershipTransferredEvent
 ): void {
   let entity = new OwnershipTransferred(
-    event.transaction.hash.concatI32(event.logIndex.toI32()),
+    event.transaction.hash.concatI32(event.logIndex.toI32())
   )
   entity.from = event.params.from
   entity.to = event.params.to
@@ -174,7 +174,7 @@ export function handleOwnershipTransferred(
 
 export function handleTransfer(event: TransferEvent): void {
   let entity = new Transfer(
-    event.transaction.hash.concatI32(event.logIndex.toI32()),
+    event.transaction.hash.concatI32(event.logIndex.toI32())
   )
   entity.from = event.params.from
   entity.to = event.params.to
